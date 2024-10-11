@@ -15,7 +15,7 @@ Let’s dive into the project.
 
 ### PROJECT OVERVIEW
 
-In this project, I work with a fictional company focused on increasing diversity and improving retention. To achieve this, HR executives need a clear understanding of employee demographics and turnover patterns over the past years. These are the key questions and metrics they’re interested in:
+In this project, I represent a fictional company focused on increasing employee diversity and improving retention. To achieve this, HR executives need a clear understanding of employee demographics and turnover patterns over the past years. These are the key questions and metrics they’re interested in:
 
 1. What is the gender breakdown of Employees in the company?
 2. What is the ethnicity breakdown of Employees in the company?
@@ -33,7 +33,7 @@ In this project, I work with a fictional company focused on increasing diversity
 
 Understanding the above metrics helps executives make data-driven decisions. 
 
-### Data Source
+### DATA SOURCE
 
 •	MySQL - Data Cleaning, Data Analysis
 
@@ -42,18 +42,18 @@ Understanding the above metrics helps executives make data-driven decisions.
 This report will show you my interpretations and queries for each question. I will also provide some insights and recommendations based on my analysis.
 
 
-### Data Preparation
+### DATA PREPARATION
 
 I downloaded the dataset from Kaggle.com. The website has various fictitious datasets for data projects. I previewed the dataset in Excel Sheets to see the numbers of rows and columns. The dataset is originally 13 columns, 22214 rows, and consists of employees’ details from 2000 to 2020. I proceeded to import the data to MySQL by creating a database first, followed by creating a table for the data to get stored. 
 
-I created a table named “hr” within the project database. To do this, I utilized the Table Data Import Wizard feature, where I imported data from the Excel file. During the process, I mapped the columns from the Excel file to the corresponding fields in the table and assigned appropriate data types, such as VARCHAR for text fields and INT for numeric fields. This method helped me efficiently structure the data for subsequent analysis.
+I created a table named **“hr”** within the project database. To do this, I utilized the **Table Data Import Wizard** feature, where I imported data from the Excel file. During the process, I mapped the columns from the Excel file to the corresponding fields in the table and assigned appropriate data types, such as VARCHAR for text fields and INT for numeric fields. This method helped me efficiently structure the data for subsequent analysis.
 
 
-### Data Cleaning
+### DATA CLEANING
 
 After importing my data, I started the cleaning process. Cleaning is an essential step in data analysis, it improves the quality of data and makes it suitable for use. I summarized the process below:
 
-Firstly, I renamed the ï»¿id column to emp_ID.
+Firstly, I **renamed** the ï»¿id column to emp_ID.
 
 ``` sql
 -- renaming the ID column
@@ -61,7 +61,7 @@ Alter table hr
 change column ï»¿id emp_ID varchar(20) null;
 ```
 
-I checked if there were any duplicate rows by using the ID column, as each employee should have a unique ID. No duplicates detected.
+I checked if there were any **duplicate** rows by using the ID column, as each employee should have a unique ID. No duplicates detected.
 
 ``` sql
 -- checking for duplicates
@@ -71,7 +71,7 @@ group by emp_ID
 having count(*) > 1;
 ```
 
-Then I checked the race and gender columns for nulls and unique values. No empty row was found and all values were properly inputted
+Then I checked the race and gender columns for **nulls** and **unique values**. No empty row was found and all values were properly inputted
 
 ``` sql
 -- checking the gender column
@@ -89,7 +89,7 @@ WHERE race IS NULL
  OR gender IS NULL;
 ```
 
-Then, I changed the date format and data types of some columns using the queries below:
+Then, I changed the **date format** and **data types** of some columns using the queries below:
 
 ##### Birthdate
 
@@ -139,7 +139,7 @@ Alter table hr
 Modify column termdate date;
 ```
 
-I checked for empty values in all other columns. None was found except in the “term_date” column which means the employee is still in the company. To answer the question on age distribution, I created a new column “age” by subtracting the birth date from the current date.
+I checked for empty values in all other columns. None was found except in the “term_date” column which means the employee is still in the company. To answer the question on age distribution, I created a new column **“age”** by subtracting the birth date from the current date.
 
 ``` sql
 -- adding a new column age
@@ -150,7 +150,7 @@ Update hr
 Set age = timestampdiff(YEAR,birthdate,CURDATE());
 ```
 
-I checked for the minimum and maximum ages of employees. And found that some values were negative with birth dates greater than today’s date for eg. 2060, so I assumed that there might have been an error in the dataset, where, instead of 1960 the birth year was written as 2060.
+I checked for the **minimum** and **maximum** ages of employees. And found that some values were negative with birth dates greater than today’s date for eg. 2060, so I assumed that there might have been an error in the dataset, where, instead of 1960 the birth year was written as 2060.
 
 ``` sql
 -- checking minimum and maximum ages of employees
@@ -160,7 +160,7 @@ max(age) as oldest
 from hr;
 ```
 
-So, to adress this issue I subtracted 100 years from such values:
+So, to address this issue I **subtracted 100 years** from such values:
 
 ``` sql
 -- subtracting 100 years from birthdates which are greater than the current date
@@ -172,7 +172,8 @@ WHERE birthdate >= '2060-01-01' AND birthdate < '2070-01-01';
 I will be working with **22214 rows** and **14 columns** throughout my analysis.
 
 
-### Analysis
+### ANALYSIS
+
 Now that I have the data ready, I can start writing queries to answer the questions and metrics that the HR executives are interested in.
 
 #### Gender and Race Distribution
@@ -377,34 +378,35 @@ Order by department ;
 ```
 
 
-### Insights
-I imported my data to Power BI for ease of communication. I grouped my findings under Employee Diversity and Turnover rate.
+### INSIGHTS
+I imported my data to **Power BI** for ease of communication. I grouped my findings under Employee Diversity and Turnover rate.
 
 #### Employee Diversity
 
-The total number of Employees hired from 2000 to 2020 is 18,285, out of which 13,710 work from the headquarters. This means that 25% of employees work remotely.
+- The total number of **Employees hired** from 2000 to 2020 is 18,285, out of which 13,710 work from the **headquarters**. This means that 25% of employees work **remotely**.
 
-51.01% of people hired are Male, 46.24% female, and 2.75% non-conforming. The company has more employees between the ages of 30 to 49.
+- 51.01% of people hired are **Male**, 46.24% **female**, and 2.75% **non-conforming**. The company has more employees between the ages of **30 to 49**.
 
-14,788 employees (80.87%) live in Ohio while Wisconsin has the least employees. This correlates with the above insight since the headquarters is located in Ohio. 
+- 14,788 employees (80.87%) live in **Ohio** while **Wisconsin** has the least employees. This correlates with the above insight since the headquarters is located in Ohio. 
 
-5,214 of the employees hired are White and this is the race with the highest employees.
+- 5,214 of the employees hired are **White** and this is the race with the highest employees.
 
-The Engineering department has the most employees. The company hired more Research Assistant II followed by Business Analyst and Human Resources Analyst II.
+- The **Engineering department** has the most employees. The company hired more **Research Assistant II** followed by **Business Analyst** and **Human Resources Analyst II**.
 
 #### Employee Turnover 
-The number of Employees that have left the company between 2020 and now is 3,929. The turnover rate is 12%, which means that 12% of all employees hired have left the company.
 
-The average length of employment of an employee in the company is 8 years.
+- The number of Employees that have **left** the company between 2020 and now is 3,929. The **turnover rate** is 12%, which means that 12% of all employees hired have left the company.
 
-The year 2001 had the highest turnover rate with 18.09% while 2020 had the lowest turnover rate with 3.66% of employees hired leaving the company.
+- The **average length of employment** of an employee in the company is **8** years.
 
-The department and position with the highest turnover rate are Auditing and Executive Secretary, Statistician III and Statistician IV respectively. 17% of the employees hired in the Auditing department and 50% of the three positions left the department.
+- The year **2001** had the highest turnover rate with 18.09% while **2020** had the lowest turnover rate with 3.66% of employees hired leaving the company.
 
-Non-conforming employees have the highest turnover rate in Research and Development (20%), while female employees face notable turnover in Legal (15%) and Training (14%). Male turnover is relatively balanced across departments but peaks in Auditing (25%), indicating significant retention challenges in this department for male employees.
+- The department and position with the highest turnover rate are **Auditing** and **Executive Secretary, Statistician III and Statistician IV** respectively. **17%** of the employees hired in the Auditing department and **50%** of the three positions left the department.
+
+- **Non-conforming** employees have the highest turnover rate in **Research and Development** (20%), while **female** employees face notable turnover in **Legal** (15%) and Training (14%). **Male** turnover is relatively balanced across departments but peaks in **Auditing** (25%), indicating significant retention challenges in this department for male employees.
 
 
-### Recommendations
+### RECOMMENDATIONS
 
 Here are a few recommendations that will help the company to increase employee diversity and reduce the turnover rates
 
@@ -415,7 +417,7 @@ Here are a few recommendations that will help the company to increase employee d
 3.	The turnover rate has reduced over the years and this is impressive but there are positions with over 20% turnover rate. The company should have discussions with employees in those positions, conduct surveys to understand the factors influencing turnovers, and take actions.
 
 
-### Note:
+### NOTE:
 
 
 
