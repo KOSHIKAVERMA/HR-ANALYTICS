@@ -11,6 +11,13 @@ In this article, I’ll explore HR analytics by examining workforce diversity an
 
 Let’s dive into the project.
 
+### TABLE OF CONTENTS
+
+- [Project Overview](#Project-overview)
+
+
+
+
 
 
 ### PROJECT OVERVIEW
