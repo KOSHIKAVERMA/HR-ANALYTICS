@@ -13,10 +13,13 @@ Let’s dive into the project.
 
 ### TABLE OF CONTENTS
 
-- [Project Overview](#Project-overview)
-
-
-
+- [Project Overview](#project-overview)
+- [Data Source](#data-source)
+- [Data Preparation](#data-preparation)
+- [Data Cleaning](#data-cleaning)
+- [Analysis](#analysis)
+- [Insights](#insights)
+- [Recommendations](#recommendations)
 
 
 
