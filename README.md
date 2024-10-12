@@ -403,6 +403,9 @@ I imported my data to **Power BI** for ease of communication. I grouped my findi
 
 - The **Engineering department** has the most employees. The company hired more **Research Assistant II** followed by **Business Analyst** and **Human Resources Analyst II**.
 
+![Employee Distribution report](https://github.com/user-attachments/assets/21db98c8-8f7e-4bf7-8b13-938e227b62d7)
+
+
 #### Employee Turnover 
 
 - The number of Employees that have **left** the company between 2020 and now is 3,929. The **turnover rate** is 12%, which means that 12% of all employees hired have left the company.
@@ -414,6 +417,11 @@ I imported my data to **Power BI** for ease of communication. I grouped my findi
 - The department and position with the highest turnover rate are **Auditing** and **Executive Secretary, Statistician III and Statistician IV** respectively. **17%** of the employees hired in the Auditing department and **50%** of the three positions left the department.
 
 - **Non-conforming** employees have the highest turnover rate in **Research and Development** (20%), while **female** employees face notable turnover in **Legal** (15%) and Training (14%). **Male** turnover is relatively balanced across departments but peaks in **Auditing** (25%), indicating significant retention challenges in this department for male employees.
+
+
+
+![Employee Turnover report](https://github.com/user-attachments/assets/b9f31bc6-d0a5-49f2-bd02-9289b0cbfead)
+
 
 
 ### RECOMMENDATIONS
