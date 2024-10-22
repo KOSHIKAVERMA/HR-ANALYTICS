@@ -43,7 +43,7 @@ In this project, I represent a fictional company focused on increasing employee 
 
 Understanding the above metrics helps executives make data-driven decisions. 
 
-### DATA SOURCE
+### TOOLS USED
 
 •	MySQL - Data Cleaning, Data Analysis
 
