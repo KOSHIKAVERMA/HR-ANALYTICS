@@ -1,4 +1,4 @@
-# HR ANALYTICS
+# Strategic Workforce Analysis: An HR Data Exploration
 
 
 Improving employee experience starts with **HR analytics**, which taps into the potential of the workforce. 
