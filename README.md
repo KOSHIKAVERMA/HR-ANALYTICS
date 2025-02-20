@@ -56,6 +56,15 @@ This report will show you my interpretations and queries for each question. I wi
 
 I downloaded the dataset from Kaggle.com. The website has various fictitious datasets for data projects. I previewed the dataset in Excel Sheets to see the numbers of rows and columns. The dataset originally had 13 columns, 22214 rows, and consists of employees’ details from 2000 to 2020. I proceeded to import the data to MySQL by creating a database first, followed by creating a table for the data to get stored. 
 
+<br>
+
+Here is a quick look of the data:
+
+![Screenshot 2025-02-20 202731](https://github.com/user-attachments/assets/551779be-8440-4bbe-92cc-89507461e259)
+
+
+<br>
+
 I created a table named **“hr”** within the project database. To do this, I utilized the **Table Data Import Wizard** feature, where I imported data from the Excel file. During the process, I mapped the columns from the Excel file to the corresponding fields in the table and assigned appropriate data types, such as VARCHAR for text fields and INT for numeric fields. This method helped me efficiently structure the data for subsequent analysis.
 
 
