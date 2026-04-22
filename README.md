@@ -150,10 +150,6 @@ Update hr
 Set termdate = date(str_to_date(termdate, '%Y-%m-%d %H:%i:%s UTC'))
 where termdate is not null and termdate != '';
 
-UPDATE hr
-SET termdate = IF(termdate IS NOT NULL AND termdate != '', date(str_to_date(termdate, '%Y-%m-%d %H:%i:%s UTC')), '0000-00-00')
-WHERE true;
-
 Alter table hr
 Modify column termdate date;
 ```
